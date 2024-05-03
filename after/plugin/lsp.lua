@@ -13,6 +13,16 @@ require("mason-lspconfig").setup({
 		function(server_name)
 			require("lspconfig")[server_name].setup({})
 		end,
+
+		clangd = function()
+			require("lspconfig").clangd.setup({
+				cmd = {
+					"clangd",
+					"--offset-encoding=utf-16",
+					"--query-driver=C:\\Users\\User\\scoop\\apps\\gcc\\current\\bin\\g++.exe",
+				},
+			})
+		end,
 	},
 })
 
@@ -26,12 +36,3 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 	},
 })
-
--- require("lspconfig").clangd.setup({
--- 	on_attach = on_attach,
--- 	cmd = {
--- 		"clangd",
--- 		"--offset-encoding=utf-16",
--- 		"--function-arg-placeholders=0",
--- 	},
--- })
