@@ -4,7 +4,9 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-
+vim.o.cindent = false
+vim.cmd("set nocindent")
+vim.cmd("filetype indent off")
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
