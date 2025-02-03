@@ -32,21 +32,33 @@ return {
                 },
             })
 
+            require("lspconfig").zls.setup({
+                settings = {
+                    zls = {
+                        enable_autofix = true
+                    },
+                }
+            })
+
+            require("lspconfig").clangd.setup({
+                cmd = {"clangd", "-header-insertion=never"}
+            })
+
             local luasnip = require("luasnip")
             local cmp = require("cmp")
 
             luasnip.config.history = true
-            vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
-                if luasnip.locally_jumpable(1) then
-                    luasnip.jump(1)
-                end
-                print("jghdkj")
-            end, { silent = true })
-            vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
-                if luasnip.locally_jumpable(-1) then
-                    luasnip.jump(-1)
-                end
-            end, { silent = true })
+            -- vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
+            --     if luasnip.locally_jumpable(1) then
+            --         luasnip.jump(1)
+            --     end
+            --     print("jghdkj")
+            -- end, { silent = true })
+            -- vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
+            --     if luasnip.locally_jumpable(-1) then
+            --         luasnip.jump(-1)
+            --     end
+            -- end, { silent = true })
 
             cmp.setup({
                 mapping = {

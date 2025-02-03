@@ -1,6 +1,9 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- vim.opt.wrap = true
+-- vim.opt.linebreak = true
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -25,9 +28,18 @@ vim.opt.incsearch = true
 
 vim.opt.signcolumn = "yes"
 
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 
 vim.opt.termguicolors = true
 
 vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+vim.filetype.add({
+    etension = {
+        ['*.vert'] = 'glsl',
+        -- ['*.frag'] = 'glsl',
+        -- ['*.comp'] = 'glsl',
+    }
+
+})

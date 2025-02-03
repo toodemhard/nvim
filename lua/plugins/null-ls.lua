@@ -15,7 +15,7 @@ return {
                 -- }),
                 -- null_ls.builtins.formatting.prettier,
                 -- null_ls.builtins.formatting.eslintd,
-                null_ls.builtins.formatting.stylua,
+                -- null_ls.builtins.formatting.stylua,
                 -- null_ls.builtins.formatting.prettier.with({
                 -- 	filetypes = { "typescript", "javascript", "html", "css" },
                 -- }),

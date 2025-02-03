@@ -1,8 +1,35 @@
 vim.g.mapleader = " "
 -- vim.keymap.set("n", "<leader>pv", vim.cmd("Oil"))
 
--- vim.keymap.set({ "n", "v" }, "j", "gj")
--- vim.keymap.set({ "n", "v" }, "k", "gk")
+-- vim.keymap.del("n", "^K")
+
+vim.keymap.set({"n", "v"}, "<C-b>", "<cmd>!build.bat<CR>", {silent=true});
+
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+vim.keymap.set("n", "<C-k>", "<cmd>ClangdSwitchSourceHeader<cr>")
+
+-- softwrap binds
+vim.keymap.set({ "n", "v" }, "j", "gj")
+vim.keymap.set({ "n", "v" }, "k", "gk")
+vim.keymap.set({ "n", "v" }, "A", "g$a")
+-- vim.keymap.set({ "n", "v" }, "I", "g0i")
+-- vim.keymap.set({ "n", "v" }, "_", "g_")
+-- vim.keymap.set({ "n", "v" }, "0", "g0")
+vim.keymap.set({ "n", "v" }, "$", "g$")
+
+vim.keymap.set("n", "<C-K>", "<Esc>f,vB");
+
+
+-- local x = function()
+--     pos.
+-- end
+
+
+
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==")
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==")
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")

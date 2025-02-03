@@ -23,6 +23,11 @@ local opts = {
 	ui = {
 		border = "rounded",
 	},
+    checker = {
+        change_detection = {
+            enabled = false,
+        }
+    }
 }
 
 require("lazy").setup("plugins", opts)
