@@ -48,25 +48,25 @@ return {
             local cmp = require("cmp")
 
             luasnip.config.history = true
-            -- vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
-            --     if luasnip.locally_jumpable(1) then
-            --         luasnip.jump(1)
-            --     end
-            --     print("jghdkj")
-            -- end, { silent = true })
-            -- vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
-            --     if luasnip.locally_jumpable(-1) then
-            --         luasnip.jump(-1)
-            --     end
-            -- end, { silent = true })
+            vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
+                if luasnip.locally_jumpable(2) then
+                    luasnip.jump(1)
+                end
+                print("jghdkj")
+                print(luasnip.locally_jumpable(3));
+            end, { silent = true })
+            vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
+                luasnip.jump(-1)
+                -- if luasnip.locally_jumpable(-1) then
+                -- end
+            end, { silent = true })
 
             cmp.setup({
                 mapping = {
                     ["<cr>"] = cmp.mapping.confirm({}),
                     ["<c-k>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.locally_jumpable(1) then
+                        print(luasnip.locally_jumpable(1))
+                        if luasnip.locally_jumpable(1) then
                             luasnip.jump(1)
                         else
                             fallback()
@@ -74,9 +74,7 @@ return {
                     end, { "i", "s" }),
 
                     ["<c-j>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.locally_jumpable(-1) then
+                        if luasnip.locally_jumpable(-1) then
                             luasnip.jump(-1)
                         else
                             fallback()
@@ -86,6 +84,7 @@ return {
                 window = {
                     completion = cmp.config.window.bordered(),
                 },
+                sources = {},
             })
         end,
     },

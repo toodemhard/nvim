@@ -15,6 +15,9 @@ return {
 
         keymaps = {
             ["<C-p>"] = false,
+            ["<C-h>"] = false,
+            ["<C-s>"] = "actions.refresh",
+            ["<C-l>"] = false,
         }
     },
     config = function(_, opts)

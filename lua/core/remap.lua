@@ -6,11 +6,17 @@ vim.g.mapleader = " "
 vim.keymap.set({"n", "v"}, "<C-b>", "<cmd>!build.bat<CR>", {silent=true});
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- vim.keymap.set("n", "<C-j>", "<C-w>j")
+-- vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-vim.keymap.set("n", "<C-k>", "<cmd>ClangdSwitchSourceHeader<cr>")
+-- vim.keymap.set("n", "<C-H>", "<C-w>H")
+-- vim.keymap.set("n", "<C-J>", "<C-w>J")
+-- vim.keymap.set("n", "<C-K>", "<C-w>K")
+-- vim.keymap.set("n", "<C-L>", "<C-w>L")
+
+-- vim.keymap.set("n", "<leader>k", ":echo \"kys\"")
+vim.keymap.set("n", "<leader>k", "<cmd>ClangdSwitchSourceHeader<cr>")
 
 -- softwrap binds
 vim.keymap.set({ "n", "v" }, "j", "gj")
@@ -20,8 +26,8 @@ vim.keymap.set({ "n", "v" }, "A", "g$a")
 -- vim.keymap.set({ "n", "v" }, "_", "g_")
 -- vim.keymap.set({ "n", "v" }, "0", "g0")
 vim.keymap.set({ "n", "v" }, "$", "g$")
-
-vim.keymap.set("n", "<C-K>", "<Esc>f,vB");
+--
+-- vim.keymap.set("n", "<C-K>", "<Esc>f,vB");
 
 
 -- local x = function()
