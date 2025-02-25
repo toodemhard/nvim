@@ -154,22 +154,22 @@ do
         cmd = {"clangd", "-header-insertion=never"}
     })
 
-    local luasnip = require("luasnip")
+    -- local luasnip = require("luasnip")
     local cmp = require("cmp")
 
-    luasnip.config.history = true
-    vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
-        if luasnip.locally_jumpable(2) then
-            luasnip.jump(1)
-        end
-        print("jghdkj")
-        print(luasnip.locally_jumpable(3));
-    end, { silent = true })
-    vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
-        luasnip.jump(-1)
-        -- if luasnip.locally_jumpable(-1) then
-        -- end
-    end, { silent = true })
+    -- luasnip.config.history = true
+    -- vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
+    --     if luasnip.locally_jumpable(2) then
+    --         luasnip.jump(1)
+    --     end
+    --     print("jghdkj")
+    --     print(luasnip.locally_jumpable(3));
+    -- end, { silent = true })
+    -- vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
+    --     luasnip.jump(-1)
+    --     -- if luasnip.locally_jumpable(-1) then
+    --     -- end
+    -- end, { silent = true })
     -- local luasnip = require("luasnip")
     --
     -- luasnip.config.history = true
