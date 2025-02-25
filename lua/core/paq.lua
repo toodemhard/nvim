@@ -23,19 +23,19 @@ require "paq" {
     { "hrsh7th/cmp-nvim-lsp" },
     { "L3MON4D3/LuaSnip" },
     { "hrsh7th/nvim-cmp" },
-    {"VonHeikemen/lsp-zero.nvim"},
+    {"VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
+    },
 	{"numToStr/Comment.nvim"},
     {'junegunn/goyo.vim'},
-    -- {"NeogitOrg/neogit"},
-    -- {"sindrets/diffview.nvim"},
 	{"tpope/vim-fugitive"},
 	{"lewis6991/gitsigns.nvim"},
 }
 
--- require("nvim-treesitter.configs").setup({
---     auto_install = true,
---     highlight = { enable = true },
--- })
+require("nvim-treesitter.configs").setup({
+    auto_install = true,
+    highlight = { enable = true },
+})
 --
 -- do
 --     local neogit = require('neogit')
@@ -164,30 +164,57 @@ do
         -- if luasnip.locally_jumpable(-1) then
         -- end
     end, { silent = true })
+    -- local luasnip = require("luasnip")
+    --
+    -- luasnip.config.history = true
+    -- vim.keymap.set({ "i", "n", "v" }, "<c-k>", function()
+    --     if luasnip.locally_jumpable(2) then
+    --         luasnip.jump(1)
+    --     end
+    --     print("jghdkj")
+    --     print(luasnip.locally_jumpable(3));
+    -- end, { silent = true })
+    -- vim.keymap.set({ "i", "n", "v" }, "<c-j>", function()
+    --     luasnip.jump(-1)
+    --     -- if luasnip.locally_jumpable(-1) then
+    --     -- end
+    -- end, { silent = true })
 
+    local cmp = require("cmp")
     cmp.setup({
+        enabled = false,
         mapping = {
             ["<cr>"] = cmp.mapping.confirm({}),
-            ["<c-k>"] = cmp.mapping(function(fallback)
-                print(luasnip.locally_jumpable(1))
-                if luasnip.locally_jumpable(1) then
-                    luasnip.jump(1)
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
-
-            ["<c-j>"] = cmp.mapping(function(fallback)
-                if luasnip.locally_jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, { "i", "s" }),
+            -- ["<c-k>"] = cmp.mapping(function(fallback)
+            --     print(luasnip.locally_jumpable(1))
+            --     if luasnip.locally_jumpable(1) then
+            --         luasnip.jump(1)
+            --     else
+            --         fallback()
+            --     end
+            -- end, { "i", "s" }),
+            --
+            -- ["<c-j>"] = cmp.mapping(function(fallback)
+            --     if luasnip.locally_jumpable(-1) then
+            --         luasnip.jump(-1)
+            --     else
+            --         fallback()
+            --     end
+            -- end, { "i", "s" }),
+        },
+        snippet = {
+            expand = function(args)
+                -- You need Neovim v0.10 to use vim.snippet
+                vim.snippet.expand(args.body)
+                end,
         },
         window = {
             completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
         },
+        -- sources = {
+        --     {name = 'nvim_lsp'},
+        -- }
         sources = {},
     })
 end
