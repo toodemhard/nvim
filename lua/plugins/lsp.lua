@@ -22,7 +22,11 @@ return {
                 lsp_zero.default_keymaps({ buffer = bufnr })
             end)
 
-            require("mason").setup({})
+            require("mason").setup({
+                ui = {
+                    border = "rounded",
+                },
+            })
             require("mason-lspconfig").setup({
                 ensure_installed = {},
                 handlers = {

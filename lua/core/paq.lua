@@ -9,7 +9,6 @@ require "paq" {
     {"savq/melange-nvim"},
     {"nvim-telescope/telescope.nvim"},
 	{"numToStr/Comment.nvim"},
-
     {
         "williamboman/mason.nvim",
         -- opts = {
@@ -30,7 +29,12 @@ require "paq" {
     {'junegunn/goyo.vim'},
 	{"tpope/vim-fugitive"},
 	{"lewis6991/gitsigns.nvim"},
+
+    {"windwp/nvim-autopairs"},
+
 }
+
+require("nvim-autopairs").setup {}
 
 require("nvim-treesitter.configs").setup({
     auto_install = true,
@@ -41,6 +45,8 @@ require("nvim-treesitter.configs").setup({
 --     local neogit = require('neogit')
 --     neogit.setup {}
 -- end
+
+require("Comment").setup()
 
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
