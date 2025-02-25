@@ -1,6 +1,6 @@
 require("core.remap")
 require("core.set")
-require("core.plugins")
+require("core.paq")
 require("core.neovide")
 
 vim.cmd("colorscheme melange")
