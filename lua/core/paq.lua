@@ -31,10 +31,15 @@ require "paq" {
 	{"lewis6991/gitsigns.nvim"},
 
     {"windwp/nvim-autopairs"},
-
+    {"lukas-reineke/indent-blankline.nvim"},
 }
 
-require("nvim-autopairs").setup {}
+require("ibl").setup()
+
+require("nvim-autopairs").setup {
+    enable_afterquote = false,
+}
+require('nvim-autopairs').remove_rule('`')
 
 require("nvim-treesitter.configs").setup({
     auto_install = true,
@@ -224,3 +229,4 @@ do
         sources = {},
     })
 end
+

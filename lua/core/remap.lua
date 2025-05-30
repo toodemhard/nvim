@@ -8,38 +8,34 @@ vim.keymap.set("n", "<leader>g", "<cmd>Git<CR> <C-W>L", {})
 vim.keymap.set({"n", "v"}, "<C-b>", function()
     local build_cmd = "build.bat"
     local existing_win = nil
+    local existing_buf = nil
 
-    -- Check if a terminal buffer running build.bat already exists in a window
     for _, win in ipairs(vim.api.nvim_list_wins()) do
         local buf = vim.api.nvim_win_get_buf(win)
         local name = vim.api.nvim_buf_get_name(buf)
         if name:match("term://.*" .. build_cmd) then
             existing_win = win
+            existing_buf = buf
             break
         end
     end
 
     local prev_win = vim.api.nvim_get_current_win()
     if existing_win then
-        -- If found, switch to that window and start insert mode
-        vim.api.nvim_set_current_win(existing_win)
-        vim.cmd("term " .. build_cmd)
-
-    else
-        -- Save the current window so we can return to it later
-
-        -- Open a vertical split and start a new terminal session
-        vim.cmd("vsplit")
-        local term_win = vim.api.nvim_get_current_win()
-        vim.cmd("term " .. build_cmd)
-
-        -- Move the terminal window to the right
-        vim.cmd("wincmd L")
-
-        -- Return focus to the previous window
+        -- vim.api.nvim_set_current_win(existing_win)
+        -- vim.cmd("term " .. build_cmd)
+        vim.api.nvim_buf_delete(existing_buf, {force = true})
     end
-    vim.api.nvim_set_current_win(prev_win)
-end, {silent=true});
+
+    vim.cmd("vsplit")
+    -- local term_win = vim.api.nvim_get_current_win()
+    vim.cmd("term " .. build_cmd)
+    vim.cmd("wincmd L")
+
+    if prev_win ~= existing_win then
+        vim.api.nvim_set_current_win(prev_win)
+    end
+end, {silent=true})
 
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")

@@ -1,5 +1,6 @@
+vim.lsp.set_log_level("off")
 vim.opt.nu = true
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 -- vim.opt.wrap = true
 -- vim.opt.linebreak = true
