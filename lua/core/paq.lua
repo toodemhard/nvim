@@ -32,7 +32,13 @@ require "paq" {
 
     {"windwp/nvim-autopairs"},
     {"lukas-reineke/indent-blankline.nvim"},
+    {"dhananjaylatkar/cscope_maps.nvim"},
 }
+
+-- require("cscope_maps").setup({
+--     skip_input_prompt = true,
+--     skip_picker_for_single_result = true,
+-- })
 
 require("ibl").setup()
 
@@ -147,17 +153,17 @@ do
         },
     })
 
-    require("lspconfig").zls.setup({
-        settings = {
-            zls = {
-                enable_autofix = true
-            },
-        }
-    })
-
-    require("lspconfig").clangd.setup({
-        cmd = {"clangd", "-header-insertion=never"}
-    })
+    -- require("lspconfig").zls.setup({
+    --     settings = {
+    --         zls = {
+    --             enable_autofix = true
+    --         },
+    --     }
+    -- })
+    --
+    -- require("lspconfig").clangd.setup({
+    --     cmd = {"clangd", "-header-insertion=never"}
+    -- })
 
     -- local luasnip = require("luasnip")
     local cmp = require("cmp")

@@ -100,3 +100,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set({ "i", "c" }, "<C-H>", "<C-W>")
 vim.keymap.set({ "i", "c" }, "<C-BS>", "<C-W>")
 vim.keymap.set({ "i", "c" }, "<C-BS>", "<C-W>")
+
+-- vim.keymap.set({ "n", "v" }, "gd", "<cmd>Cs f g<cr>")
+-- vim.keymap.set({ "n", "v" }, "gr", "<cmd>Cs f c<cr>")
